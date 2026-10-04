@@ -1,68 +1,375 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Build & Compare • Shape Builder Workshop</title>
-  <link rel="stylesheet" href="css/style.css">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+  <title>
+    Build & Compare • Shape Builder Workshop
+  </title>
+
+  <link
+    rel="stylesheet"
+    href="css/style.css">
+
 </head>
+
+
 <body>
+
+
+  <!-- =====================================
+       HEADER
+  ====================================== -->
+
   <header class="site-header">
-    <div class="brand">🧰 Shape Builder Workshop</div>
+
+    <div class="brand">
+      🧰 Shape Builder Workshop
+    </div>
+
+
     <nav>
-      <a href="index.html">Home</a>
-      <a href="learn.html">Learn</a>
-      <a class="active" href="build.html">Build & Compare</a>
-      <a href="challenge.html">Challenge</a>
+
+      <a href="index.html">
+        Home
+      </a>
+
+      <a href="learn.html">
+        Learn
+      </a>
+
+      <a
+        class="active"
+        href="build.html">
+
+        Build & Compare
+
+      </a>
+
+      <a href="challenge.html">
+        Challenge
+      </a>
+
     </nav>
+
   </header>
 
+
+
+  <!-- =====================================
+       MAIN CONTENT
+  ====================================== -->
+
   <main class="container">
+
+
+    <!-- PAGE TITLE -->
+
     <section class="page-title">
-      <p class="eyebrow">MISSION 2</p>
-      <h1>Build & Compare</h1>
-      <p>Choose a mission, build both solids, then decide which one is a prism.</p>
+
+      <p class="eyebrow">
+        MISSION 2
+      </p>
+
+      <h1>
+        Build & Compare
+      </h1>
+
+      <p>
+
+        Choose a mission, build both
+        solids, then decide which one
+        is a prism.
+
+      </p>
+
     </section>
+
+
+
+    <!-- =====================================
+         MISSION SELECTOR
+    ====================================== -->
 
     <section class="mission-panel">
-      <label for="missionSelect">Choose a comparison mission:</label>
+
+      <label for="missionSelect">
+
+        <strong>
+          Choose a comparison mission:
+        </strong>
+
+      </label>
+
+
       <select id="missionSelect">
-        <option value="0">Square Prism vs Pyramid</option>
-        <option value="1">Rectangular Prism vs Pyramid</option>
-        <option value="2">Triangular Prism vs Pyramid</option>
-        <option value="3">Rectangular Prism vs Cylinder</option>
-        <option value="4">Square Prism vs Cylinder</option>
-        <option value="5">Cylinder vs Sphere</option>
+
+
+        <option value="0">
+          Square Prism vs Pyramid
+        </option>
+
+
+        <option value="1">
+          Rectangular Prism vs Pyramid
+        </option>
+
+
+        <option value="2">
+          Triangular Prism vs Pyramid
+        </option>
+
+
+        <option value="3">
+          Rectangular Prism vs Cylinder
+        </option>
+
+
+        <option value="4">
+          Square Prism vs Cylinder
+        </option>
+
+
+        <option value="5">
+          Cylinder vs Sphere
+        </option>
+
+
       </select>
+
     </section>
+
+
+
+    <!-- =====================================
+         TWO BUILDING STATIONS
+    ====================================== -->
 
     <section class="build-grid">
+
+
+      <!-- =================================
+           STATION A
+      ================================== -->
+
       <article class="station">
-        <div class="station-header"><span>STATION A</span><strong id="nameA">Square Prism</strong></div>
-        <div class="shape-stage" id="stageA"><p>Click BUILD to construct it.</p></div>
-        <button class="btn primary build-btn" id="buildA">🔨 BUILD A</button>
+
+
+        <div class="station-header">
+
+          <span>
+            STATION A
+          </span>
+
+
+          <strong id="nameA">
+            Square Prism
+          </strong>
+
+        </div>
+
+
+
+        <!-- 3D SHAPE AREA -->
+
+        <div
+          class="shape-stage"
+          id="stageA">
+
+          <p>
+            Click BUILD to construct it.
+          </p>
+
+        </div>
+
+
+
+        <!-- BUILD BUTTON -->
+
+        <button
+          type="button"
+          class="btn primary build-btn"
+          id="buildA">
+
+          🔨 BUILD A
+
+        </button>
+
+
       </article>
+
+
+
+      <!-- =================================
+           STATION B
+      ================================== -->
+
       <article class="station">
-        <div class="station-header"><span>STATION B</span><strong id="nameB">Pyramid</strong></div>
-        <div class="shape-stage" id="stageB"><p>Click BUILD to construct it.</p></div>
-        <button class="btn primary build-btn" id="buildB">🔨 BUILD B</button>
+
+
+        <div class="station-header">
+
+          <span>
+            STATION B
+          </span>
+
+
+          <strong id="nameB">
+            Pyramid
+          </strong>
+
+        </div>
+
+
+
+        <!-- 3D SHAPE AREA -->
+
+        <div
+          class="shape-stage"
+          id="stageB">
+
+          <p>
+            Click BUILD to construct it.
+          </p>
+
+        </div>
+
+
+
+        <!-- BUILD BUTTON -->
+
+        <button
+          type="button"
+          class="btn primary build-btn"
+          id="buildB">
+
+          🔨 BUILD B
+
+        </button>
+
+
       </article>
+
+
     </section>
+
+
+
+    <!-- =====================================
+         ANSWER SECTION
+    ====================================== -->
 
     <section class="answer-panel">
-      <h2>Which one is the prism?</h2>
+
+
+      <h2>
+        Which one is the prism?
+      </h2>
+
+
+      <p>
+        Look carefully at the two solids
+        before choosing your answer.
+      </p>
+
+
+
+      <!-- ANSWER BUTTONS -->
+
       <div class="answer-buttons">
-        <button type="button" id="answerA">Station A</button>
-        <button type="button" id="answerB">Station B</button>
-        <button type="button" id="answerBoth">Both are prisms</button>
-        <button type="button" id="answerNeither">Neither is a prism</button>
+
+
+        <button
+          type="button"
+          id="answerA">
+
+          Station A
+
+        </button>
+
+
+        <button
+          type="button"
+          id="answerB">
+
+          Station B
+
+        </button>
+
+
+        <button
+          type="button"
+          id="answerBoth">
+
+          Both are prisms
+
+        </button>
+
+
+        <button
+          type="button"
+          id="answerNeither">
+
+          Neither is a prism
+
+        </button>
+
+
       </div>
-      <div class="feedback" id="buildFeedback" aria-live="polite">Build both shapes first, then choose your answer.</div>
+
+
+
+      <!-- FEEDBACK -->
+
+      <div
+        class="feedback"
+        id="buildFeedback"
+        aria-live="polite">
+
+        Build both shapes first,
+        then choose your answer.
+
+      </div>
+
+
     </section>
+
   </main>
 
-  <footer>Shape Builder Workshop • Compare the clues!</footer>
-  <script src="js/shapes.js"></script>
-  <script src="js/build.js"></script>
+
+
+  <!-- =====================================
+       FOOTER
+  ====================================== -->
+
+  <footer>
+
+    Shape Builder Workshop
+    •
+    Compare the clues!
+
+  </footer>
+
+
+
+  <!-- =====================================
+       JAVASCRIPT
+  ====================================== -->
+
+  <script src="js/shapes.js">
+  </script>
+
+
+  <script src="js/build.js">
+  </script>
+
+
 </body>
+
 </html>
