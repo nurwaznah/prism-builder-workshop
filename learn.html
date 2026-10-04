@@ -2,37 +2,31 @@
 <html lang="en">
 
 <head>
-
   <meta charset="UTF-8">
 
   <meta
     name="viewport"
     content="width=device-width, initial-scale=1.0">
 
-  <title>
-    Learn • Shape Builder Workshop
-  </title>
+  <title>Learn | Shape Builder Workshop</title>
 
   <link
     rel="stylesheet"
     href="css/style.css">
-
 </head>
 
 
 <body>
 
-
-  <!-- =====================================
+  <!-- =========================
        HEADER
-  ====================================== -->
+       ========================= -->
 
   <header class="site-header">
 
     <div class="brand">
-      🧰 Shape Builder Workshop
+      🔧 Shape Builder Workshop
     </div>
-
 
     <nav>
 
@@ -41,11 +35,9 @@
       </a>
 
       <a
-        class="active"
-        href="learn.html">
-
+        href="learn.html"
+        class="active">
         Learn
-
       </a>
 
       <a href="build.html">
@@ -61,10 +53,9 @@
   </header>
 
 
-
-  <!-- =====================================
+  <!-- =========================
        MAIN CONTENT
-  ====================================== -->
+       ========================= -->
 
   <main class="container">
 
@@ -73,160 +64,153 @@
 
     <section class="page-title">
 
-      <p class="eyebrow">
+      <div class="eyebrow">
         MISSION 1
-      </p>
+      </div>
 
       <h1>
-        Learn to Spot a Prism
+        Learn About <span>3D Shapes</span>
       </h1>
 
       <p>
-        Use these three clues before
-        you make your decision.
+        Discover the clues that help you identify a prism.
+        Then click a shape to explore its features!
       </p>
 
     </section>
 
 
 
-    <!-- =====================================
-         THREE PRISM CLUES
-    ====================================== -->
-
-    <section class="clue-grid">
-
-
-      <!-- CLUE 1 -->
-
-      <article class="clue-card">
-
-        <div class="clue-number">
-          1
-        </div>
-
-        <h2>
-          Two matching bases
-        </h2>
-
-        <p>
-
-          A prism has
-          <strong>
-            two opposite bases
-          </strong>
-
-          with the same shape
-          and size.
-
-        </p>
-
-      </article>
-
-
-
-      <!-- CLUE 2 -->
-
-      <article class="clue-card">
-
-        <div class="clue-number">
-          2
-        </div>
-
-        <h2>
-          Flat surfaces
-        </h2>
-
-        <p>
-
-          Its surfaces are flat.
-
-          There is
-          <strong>
-            no curved surface
-          </strong>.
-
-        </p>
-
-      </article>
-
-
-
-      <!-- CLUE 3 -->
-
-      <article class="clue-card">
-
-        <div class="clue-number">
-          3
-        </div>
-
-        <h2>
-          It extends straight
-        </h2>
-
-        <p>
-
-          The matching bases are
-          connected by flat side faces,
-          giving the solid a prism-like shape.
-
-        </p>
-
-      </article>
-
-    </section>
-
-
-
-    <!-- =====================================
-         BUILDER TIP
-    ====================================== -->
-
-    <section class="tip-box">
-
-      <strong>
-        🛠 Builder Tip:
-      </strong>
-
-      A cylinder has two matching circular
-      bases, but it has a curved surface.
-
-      A pyramid has flat surfaces, but only
-      one base.
-
-      So neither is a prism!
-
-    </section>
-
-
-
-    <!-- =====================================
-         SHAPE GALLERY
-    ====================================== -->
+    <!-- =========================
+         PRISM CLUES
+         ========================= -->
 
     <section class="gallery-section">
 
+      <div class="section-heading">
+
+        <div class="eyebrow">
+          HOW TO SPOT A PRISM
+        </div>
+
+        <h2>
+          🔍 Three Clues
+        </h2>
+
+      </div>
+
+
+      <div class="clue-grid">
+
+
+        <!-- CLUE 1 -->
+
+        <div class="clue-card">
+
+          <div class="clue-number">
+            1
+          </div>
+
+          <h3>
+            Two Matching Bases
+          </h3>
+
+          <p>
+            A prism has two bases that are
+            the same shape and the same size.
+          </p>
+
+        </div>
+
+
+        <!-- CLUE 2 -->
+
+        <div class="clue-card">
+
+          <div class="clue-number">
+            2
+          </div>
+
+          <h3>
+            Flat Surfaces
+          </h3>
+
+          <p>
+            A prism has flat faces.
+            It does not have a curved surface.
+          </p>
+
+        </div>
+
+
+        <!-- CLUE 3 -->
+
+        <div class="clue-card">
+
+          <div class="clue-number">
+            3
+          </div>
+
+          <h3>
+            Same Shape All the Way
+          </h3>
+
+          <p>
+            The matching bases are connected
+            by flat side faces.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="tip-box">
+
+        <strong>
+          🛠️ Builder Tip:
+        </strong>
+
+        Look for two matching bases first.
+        Then check whether the shape has only
+        flat surfaces.
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         ALL SEVEN SHAPES
+         ========================= -->
+
+    <section class="gallery-section">
 
       <div class="section-heading">
 
-        <p class="eyebrow">
+        <div class="eyebrow">
           INSPECT THE TOOLBOX
-        </p>
+        </div>
 
         <h2>
           All Seven Shapes
         </h2>
 
-      </div>
+        <p>
+          👆 Click a shape to inspect its features.
+        </p>
 
+      </div>
 
 
       <div
         class="shape-gallery"
         id="shapeGallery">
 
-      </div>
+        <!-- JavaScript will create the cards here -->
 
+      </div>
 
     </section>
 
@@ -234,137 +218,119 @@
 
 
 
-  <!-- =====================================
-       FOOTER
-  ====================================== -->
+  <!-- =========================
+       SHAPE DETAIL POP-UP
+       ========================= -->
 
-  <footer>
-
-    Shape Builder Workshop
-    •
-    Learn first, then build!
-
-  </footer>
+  <div
+    class="shape-modal"
+    id="shapeModal"
+    aria-hidden="true">
 
 
-
-  <!-- =====================================
-       JAVASCRIPT
-  ====================================== -->
-
-  <script src="js/shapes.js">
-  </script>
+    <div class="shape-modal-box">
 
 
-  <script>
+      <!-- CLOSE BUTTON -->
 
-    const gallery =
-      document.getElementById(
-        "shapeGallery"
-      );
+      <button
+        class="modal-close"
+        id="modalClose"
+        type="button"
+        aria-label="Close">
+        ×
+      </button>
 
 
-    const shapes = [
+      <!-- MODAL TITLE -->
 
-      [
-        "square-prism",
-        "Square Prism"
-      ],
+      <div class="modal-header">
 
-      [
-        "rectangular-prism",
-        "Rectangular Prism"
-      ],
+        <div class="eyebrow">
+          SHAPE INSPECTOR
+        </div>
 
-      [
-        "triangular-prism",
-        "Triangular Prism"
-      ],
+        <h2 id="modalTitle">
+          Shape Name
+        </h2>
 
-      [
-        "sphere",
-        "Sphere"
-      ],
+        <div id="modalBadge">
+        </div>
 
-      [
-        "cone",
-        "Cone"
-      ],
-
-      [
-        "cylinder",
-        "Cylinder"
-      ],
-
-      [
-        "pyramid",
-        "Pyramid"
-      ]
-
-    ];
+      </div>
 
 
 
-    // Create a card for every shape
+      <!-- SHAPE + DETAILS -->
 
-    shapes.forEach(
-      function(shape) {
-
-        const type =
-          shape[0];
-
-        const name =
-          shape[1];
+      <div class="modal-content">
 
 
-        const card =
-          document.createElement(
-            "article"
-          );
+        <!-- LARGE SHAPE -->
+
+        <div class="modal-shape-area">
+
+          <div
+            class="modal-shape"
+            id="modalShape">
+          </div>
+
+        </div>
 
 
-        card.className =
-          "shape-card";
+
+        <!-- SHAPE INFORMATION -->
+
+        <div class="modal-information">
+
+          <h3>
+            🔎 Shape Features
+          </h3>
 
 
-        card.innerHTML = `
-
-          <div class="gallery-model">
-
-            ${svgForShape(type)}
+          <div
+            class="feature-details"
+            id="featureDetails">
 
           </div>
 
 
-          <h3>
-            ${name}
-          </h3>
+          <div
+            class="modal-explanation"
+            id="modalExplanation">
+
+          </div>
+
+        </div>
+
+      </div>
 
 
-          <span
-            class="${
-              isPrism(type)
-              ? "prism-label"
-              : "nonprism-label"
-            }">
 
-            ${
-              isPrism(type)
-              ? "PRISM"
-              : "NON-PRISM"
-            }
+      <!-- CLOSE -->
 
-          </span>
+      <button
+        class="btn primary modal-done"
+        id="modalDone"
+        type="button">
 
-        `;
+        Done ✓
+
+      </button>
+
+    </div>
+
+  </div>
 
 
-        gallery.appendChild(card);
 
-      }
-    );
+  <!-- =========================
+       JAVASCRIPT
+       ========================= -->
 
-  </script>
+  <script src="js/shapes.js"></script>
+
+  <script src="js/learn.js"></script>
 
 
 </body>
