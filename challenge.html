@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Challenge | Shape Builder Workshop</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="workshop-bg">
+<header class="topbar">
+  <div class="brand"><span class="brand-icon">🔨</span><span>SHAPE BUILDER<br><small>WORKSHOP</small></span></div>
+  <nav><a href="index.html">Home</a><a href="learn.html">Learn</a><a href="build.html">Build & Compare</a><a class="active" href="challenge.html">Challenge</a></nav>
+</header>
+
+<main class="page">
+  <div class="page-title">
+    <div class="blueprint-label">⭐ FINAL INSPECTION</div>
+    <h1>Shape Builder Challenge</h1>
+    <p>Can you classify all 7 shapes correctly?</p>
+  </div>
+
+  <div class="score-board">
+    <div>QUESTION <strong id="questionNo">1</strong>/7</div>
+    <div>⭐ SCORE <strong id="score">0</strong></div>
+  </div>
+
+  <section class="challenge-card">
+    <div class="challenge-shape-wrap"><div id="challengeShape" class="big-shape"></div></div>
+    <h2 id="challengeName"></h2>
+    <p>Is this a prism or a non-prism?</p>
+    <div class="answer-buttons">
+      <button class="answer-btn" data-answer="prism">🟦 PRISM</button>
+      <button class="answer-btn" data-answer="non-prism">🔴 NON-PRISM</button>
+    </div>
+    <div id="challengeFeedback" class="feedback"></div>
+    <button id="nextBtn" class="btn yellow hidden">NEXT SHAPE ➜</button>
+  </section>
+
+  <section id="result" class="result-card hidden">
+    <div class="trophy">🏆</div>
+    <h2>Workshop Complete!</h2>
+    <p>Your final score is:</p>
+    <div class="final-score"><span id="finalScore">0</span>/7</div>
+    <p id="resultMessage"></p>
+    <button class="btn orange" onclick="location.reload()">🔄 TRY AGAIN</button>
+    <a class="btn yellow" href="build.html">🔨 BUILD AGAIN</a>
+  </section>
+</main>
+<footer>🔧 Shape Builder Workshop</footer>
+<script src="js/challenge.js"></script>
+</body>
+</html>

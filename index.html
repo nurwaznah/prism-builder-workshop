@@ -3,69 +3,54 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Prism Adventure | Year 3 Mathematics</title>
+  <title>Shape Builder Workshop</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-  <header class="navbar">
-    <a class="logo" href="index.html">🔷 Prism Adventure</a>
+<body class="workshop-bg">
+  <header class="topbar">
+    <div class="brand"><span class="brand-icon">🔨</span><span>SHAPE BUILDER<br><small>WORKSHOP</small></span></div>
     <nav>
-      <a href="index.html">Home</a>
-      <a href="#about">About</a>
-      <a href="#how">How to Play</a>
+      <a class="active" href="index.html">Home</a>
+      <a href="learn.html">Learn</a>
+      <a href="build.html">Build & Compare</a>
+      <a href="challenge.html">Challenge</a>
     </nav>
   </header>
 
-  <main>
-    <section class="hero">
-      <div class="hero-text">
-        <span class="tag">YEAR 3 MATHEMATICS • 7.2</span>
-        <h1>Same Base,<br>Different Build!</h1>
-        <p>
-          Explore 3D shapes and discover why some shapes are prisms
-          while others are non-prisms.
-        </p>
-        <a class="primary-btn" href="#how">🏗️ Start Exploring</a>
-      </div>
-
-      <div class="shape-area" aria-label="Cuboid and pyramid comparison">
-        <div class="shape-card">
-          <div class="cube">🧊</div>
-          <h2>Cuboid</h2>
-          <span class="answer prism">PRISM</span>
-        </div>
-        <div class="versus">VS</div>
-        <div class="shape-card">
-          <div class="pyramid">🔺</div>
-          <h2>Rectangular Pyramid</h2>
-          <span class="answer non-prism">NON-PRISM</span>
+  <main class="hero">
+    <section class="hero-card">
+      <div class="mascot" aria-hidden="true">👷</div>
+      <div class="hero-copy">
+        <div class="blueprint-label">WORKSHOP MISSION 01</div>
+        <h1>Welcome to the<br><span>Shape Builder Workshop!</span></h1>
+        <p>Put on your builder hat and discover how to tell <strong>prisms</strong> from <strong>non-prisms</strong>.</p>
+        <div class="hero-buttons">
+          <a class="btn yellow" href="learn.html">📚 START LEARNING</a>
+          <a class="btn orange" href="build.html">🔨 START BUILDING</a>
         </div>
       </div>
     </section>
 
-    <section id="about" class="section">
-      <span class="tag">WHY THIS GAME?</span>
-      <h2>Discover instead of memorising</h2>
-      <p>
-        Pupils can compare shapes by looking at their bases, surfaces,
-        vertices and edges. The main activity will let pupils build shapes
-        from the same base and observe what changes.
-      </p>
+    <section class="workshop-tools">
+      <div class="tool-card"><span>📐</span><b>MEASURE</b><small>Look at surfaces, bases and edges.</small></div>
+      <div class="tool-card"><span>🧩</span><b>COMPARE</b><small>Build two solids side by side.</small></div>
+      <div class="tool-card"><span>⭐</span><b>CHALLENGE</b><small>Show what you have learned.</small></div>
     </section>
 
-    <section id="how" class="section">
-      <span class="tag">HOW TO PLAY</span>
-      <div class="steps">
-        <div class="step"><b>1</b><h3>Choose a base</h3><p>Start with a simple shape such as a rectangle or triangle.</p></div>
-        <div class="step"><b>2</b><h3>Build it up</h3><p>Watch the shape grow upward in different ways.</p></div>
-        <div class="step"><b>3</b><h3>Compare</h3><p>Look for two matching bases, surfaces, vertices and edges.</p></div>
-        <div class="step"><b>4</b><h3>Decide</h3><p>Choose whether the finished shape is a prism or non-prism.</p></div>
+    <section class="shape-strip">
+      <h2>Today's Shape Toolbox</h2>
+      <div class="mini-shapes">
+        <div><span class="shape square-prism"></span><b>Square Prism</b></div>
+        <div><span class="shape rectangular-prism"></span><b>Rectangular Prism</b></div>
+        <div><span class="shape triangular-prism"></span><b>Triangular Prism</b></div>
+        <div><span class="shape sphere"></span><b>Sphere</b></div>
+        <div><span class="shape cone"></span><b>Cone</b></div>
+        <div><span class="shape cylinder"></span><b>Cylinder</b></div>
+        <div><span class="shape pyramid"></span><b>Pyramid</b></div>
       </div>
     </section>
   </main>
 
-  <footer>
-    <p>Prism Adventure • Year 3 Mathematics • Topic 7.2 Prisms and Non-prisms</p>
-  </footer>
+  <footer>🔧 Shape Builder Workshop • Learn • Build • Compare • Challenge</footer>
 </body>
 </html>

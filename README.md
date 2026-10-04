@@ -1,11 +1,16 @@
-# Prism Adventure
+# Shape Builder Workshop
 
-Year 3 Mathematics gamification website for Topic 7.2: Prisms and Non-prisms.
+A cartoon construction-workshop themed mathematics learning website for learning to identify prisms and non-prisms.
 
-## Current version
-- Home page
-- Introduction to the learning idea
-- Four-step game concept
+## Pages
+- Home
+- Learn
+- Build & Compare
+- Challenge
 
-## Next
-The main interactive "Build & Compare" game will be added next.
+## Shapes
+Prisms: square prism, rectangular prism, triangular prism.
+Non-prisms: sphere, cone, cylinder, pyramid.
+
+## GitHub Pages
+Upload the files to the existing `prism-adventure` repository and keep GitHub Pages set to the `main` branch and root folder.

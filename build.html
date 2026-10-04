@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Build & Compare | Shape Builder Workshop</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="workshop-bg">
+<header class="topbar">
+  <div class="brand"><span class="brand-icon">🔨</span><span>SHAPE BUILDER<br><small>WORKSHOP</small></span></div>
+  <nav><a href="index.html">Home</a><a href="learn.html">Learn</a><a class="active" href="build.html">Build & Compare</a><a href="challenge.html">Challenge</a></nav>
+</header>
+
+<main class="page">
+  <div class="page-title">
+    <div class="blueprint-label">🔨 BUILDING STATION</div>
+    <h1>Build & Compare</h1>
+    <p>Choose a mission, build both solids, then decide which one is a prism.</p>
+  </div>
+
+  <section class="mission-panel">
+    <label for="missionSelect">🧰 Choose a comparison mission:</label>
+    <select id="missionSelect"></select>
+    <div id="missionDescription" class="mission-description"></div>
+  </section>
+
+  <section class="build-area">
+    <div class="build-card" id="cardA">
+      <div class="station-sign">STATION A</div>
+      <h2 id="nameA"></h2>
+      <div class="construction-stage"><div id="shapeA" class="big-shape"></div><div class="base-line"></div></div>
+      <button class="btn build-btn" data-side="A">🔨 BUILD A</button>
+    </div>
+
+    <div class="vs">VS</div>
+
+    <div class="build-card" id="cardB">
+      <div class="station-sign">STATION B</div>
+      <h2 id="nameB"></h2>
+      <div class="construction-stage"><div id="shapeB" class="big-shape"></div><div class="base-line"></div></div>
+      <button class="btn build-btn" data-side="B">🔨 BUILD B</button>
+    </div>
+  </section>
+
+  <section class="question-box" id="questionBox">
+    <h2>👀 Builder Check!</h2>
+    <p>Build both shapes first, then answer:</p>
+    <h3>Which one is the prism?</h3>
+    <div class="answer-buttons">
+      <button id="answerA" class="answer-btn"></button>
+      <button id="answerB" class="answer-btn"></button>
+    </div>
+    <div id="feedback" class="feedback"></div>
+  </section>
+
+  <section id="trivia" class="trivia hidden"></section>
+</main>
+<footer>🔧 Shape Builder Workshop</footer>
+<script src="js/build.js"></script>
+</body>
+</html>
