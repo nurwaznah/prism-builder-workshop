@@ -1,94 +1,428 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
   <title>Shape Builder Workshop</title>
-  <link rel="stylesheet" href="css/style.css">
+
+  <link
+    rel="stylesheet"
+    href="css/style.css">
 </head>
+
+
 <body>
+
+  <!-- =====================================
+       HEADER
+  ====================================== -->
+
   <header class="site-header">
-    <div class="brand">🧰 Shape Builder Workshop</div>
+
+    <div class="brand">
+      🧰 Shape Builder Workshop
+    </div>
+
+
     <nav>
-      <a class="active" href="index.html">Home</a>
-      <a href="learn.html">Learn</a>
-      <a href="build.html">Build & Compare</a>
-      <a href="challenge.html">Challenge</a>
+
+      <a
+        class="active"
+        href="index.html">
+        Home
+      </a>
+
+      <a href="learn.html">
+        Learn
+      </a>
+
+      <a href="build.html">
+        Build & Compare
+      </a>
+
+      <a href="challenge.html">
+        Challenge
+      </a>
+
     </nav>
+
   </header>
 
+
+
+  <!-- =====================================
+       MAIN CONTENT
+  ====================================== -->
+
   <main class="container">
+
+
+    <!-- HERO SECTION -->
+
     <section class="hero">
+
       <div>
-        <p class="eyebrow">YEAR 3 MATHEMATICS • 3D SHAPES</p>
-        <h1>Welcome to the<br><span>Shape Builder Workshop!</span></h1>
-        <p class="hero-text">Learn, build and classify 3D shapes. Can you spot the prisms?</p>
+
+        <p class="eyebrow">
+          YEAR 3 MATHEMATICS • 3D SHAPES
+        </p>
+
+
+        <h1>
+
+          Welcome to the
+
+          <br>
+
+          <span>
+            Shape Builder Workshop!
+          </span>
+
+        </h1>
+
+
+        <p class="hero-text">
+
+          Learn, build and classify 3D shapes.
+
+          Can you spot the prisms?
+
+        </p>
+
+
         <div class="hero-actions">
-          <a class="btn primary" href="learn.html">Start Learning →</a>
-          <a class="btn secondary" href="challenge.html">Try Challenge ⭐</a>
+
+          <a
+            class="btn primary"
+            href="learn.html">
+
+            Start Learning →
+
+          </a>
+
+
+          <a
+            class="btn secondary"
+            href="challenge.html">
+
+            Try Challenge ⭐
+
+          </a>
+
         </div>
+
       </div>
-      <div class="hero-art" aria-label="3D shape workshop illustration">
-        <div class="blueprint">BLUEPRINT<br><small>3D SHAPES</small></div>
-        <div class="toolbox-art">🧰</div>
+
+
+
+      <!-- WORKSHOP ILLUSTRATION -->
+
+      <div
+        class="hero-art"
+        aria-label="3D shape workshop illustration">
+
+        <div class="blueprint">
+
+          BLUEPRINT
+
+          <br>
+
+          <small>
+            3D SHAPES
+          </small>
+
+        </div>
+
+
+        <div class="toolbox-art">
+          🧰
+        </div>
+
+
         <div class="shape-stack">
-          <div class="cube-art"></div>
-          <div class="tri-art"></div>
-          <div class="sphere-art"></div>
+
+          <div class="cube-art">
+          </div>
+
+          <div class="tri-art">
+          </div>
+
+          <div class="sphere-art">
+          </div>
+
         </div>
+
       </div>
+
     </section>
+
+
+
+    <!-- =====================================
+         THREE MAIN FEATURES
+    ====================================== -->
 
     <section class="feature-grid">
-      <a class="feature-card" href="learn.html">
-        <div class="feature-icon">📐</div>
-        <h2>LEARN</h2>
-        <p>Discover the clues that help you identify a prism.</p>
+
+
+      <a
+        class="feature-card"
+        href="learn.html">
+
+        <div class="feature-icon">
+          📐
+        </div>
+
+        <h2>
+          LEARN
+        </h2>
+
+        <p>
+          Discover the clues that help
+          you identify a prism.
+        </p>
+
       </a>
-      <a class="feature-card" href="build.html">
-        <div class="feature-icon">🧩</div>
-        <h2>BUILD & COMPARE</h2>
-        <p>Build two 3D solids side by side and compare them.</p>
+
+
+
+      <a
+        class="feature-card"
+        href="build.html">
+
+        <div class="feature-icon">
+          🧩
+        </div>
+
+        <h2>
+          BUILD & COMPARE
+        </h2>
+
+        <p>
+          Build two 3D solids side by
+          side and compare them.
+        </p>
+
       </a>
-      <a class="feature-card" href="challenge.html">
-        <div class="feature-icon">⭐</div>
-        <h2>CHALLENGE</h2>
-        <p>Classify all seven 3D shapes and earn a certificate.</p>
+
+
+
+      <a
+        class="feature-card"
+        href="challenge.html">
+
+        <div class="feature-icon">
+          ⭐
+        </div>
+
+        <h2>
+          CHALLENGE
+        </h2>
+
+        <p>
+          Classify all seven 3D shapes
+          and earn a certificate.
+        </p>
+
       </a>
+
     </section>
+
+
+
+    <!-- =====================================
+         INTERACTIVE TOOLBOX
+    ====================================== -->
 
     <section class="toolbox-section">
+
+
       <div class="section-heading">
-        <p class="eyebrow">CLICK A SHAPE TO INSPECT IT</p>
-        <h2>Today's 3D Shape Toolbox</h2>
+
+        <p class="eyebrow">
+          CLICK A SHAPE TO INSPECT IT
+        </p>
+
+        <h2>
+          Today's 3D Shape Toolbox
+        </h2>
+
       </div>
 
-      <div class="toolbox-buttons" id="toolboxButtons">
-        <button type="button" data-shape="square-prism">Square Prism</button>
-        <button type="button" data-shape="rectangular-prism">Rectangular Prism</button>
-        <button type="button" data-shape="triangular-prism">Triangular Prism</button>
-        <button type="button" data-shape="sphere">Sphere</button>
-        <button type="button" data-shape="cone">Cone</button>
-        <button type="button" data-shape="cylinder">Cylinder</button>
-        <button type="button" data-shape="pyramid">Pyramid</button>
+
+
+      <!-- SHAPE BUTTONS -->
+
+      <div
+        class="toolbox-buttons"
+        id="toolboxButtons">
+
+
+        <button
+          type="button"
+          data-shape="square-prism">
+
+          Square Prism
+
+        </button>
+
+
+        <button
+          type="button"
+          data-shape="rectangular-prism">
+
+          Rectangular Prism
+
+        </button>
+
+
+        <button
+          type="button"
+          data-shape="triangular-prism">
+
+          Triangular Prism
+
+        </button>
+
+
+        <button
+          type="button"
+          data-shape="sphere">
+
+          Sphere
+
+        </button>
+
+
+        <button
+          type="button"
+          data-shape="cone">
+
+          Cone
+
+        </button>
+
+
+        <button
+          type="button"
+          data-shape="cylinder">
+
+          Cylinder
+
+        </button>
+
+
+        <button
+          type="button"
+          data-shape="pyramid">
+
+          Pyramid
+
+        </button>
+
       </div>
 
-      <div class="inspect-panel" id="inspectPanel">
-        <div class="inspect-model" id="inspectModel">
-          <p>Choose a shape above 👆</p>
+
+
+      <!-- SHAPE INFORMATION PANEL -->
+
+      <div
+        class="inspect-panel"
+        id="inspectPanel">
+
+
+        <!-- 3D MODEL -->
+
+        <div
+          class="inspect-model"
+          id="inspectModel">
+
+          <p>
+            Choose a shape above 👆
+          </p>
+
         </div>
+
+
+
+        <!-- INFORMATION -->
+
         <div class="inspect-info">
-          <span class="status-badge" id="inspectBadge">READY TO EXPLORE</span>
-          <h3 id="inspectTitle">Pick a 3D shape</h3>
-          <p id="inspectDescription">Click one of the shape buttons to see its 3D model and learn why it is a prism or non-prism.</p>
-          <ul id="inspectFacts" class="fact-list"></ul>
+
+
+          <span
+            class="status-badge"
+            id="inspectBadge">
+
+            READY TO EXPLORE
+
+          </span>
+
+
+          <h3
+            id="inspectTitle">
+
+            Pick a 3D shape
+
+          </h3>
+
+
+          <p
+            id="inspectDescription">
+
+            Click one of the shape buttons
+            to see its 3D model and learn
+            why it is a prism or non-prism.
+
+          </p>
+
+
+          <ul
+            id="inspectFacts"
+            class="fact-list">
+
+          </ul>
+
         </div>
+
       </div>
+
     </section>
+
   </main>
 
-  <footer>Shape Builder Workshop • Year 3 Mathematics</footer>
-  <script src="js/shapes.js"></script>
-  <script src="js/home.js"></script>
+
+
+  <!-- =====================================
+       FOOTER
+  ====================================== -->
+
+  <footer>
+
+    Shape Builder Workshop
+    •
+    Year 3 Mathematics
+
+  </footer>
+
+
+
+  <!-- =====================================
+       JAVASCRIPT
+  ====================================== -->
+
+  <script src="js/shapes.js">
+  </script>
+
+  <script src="js/home.js">
+  </script>
+
+
 </body>
+
 </html>
