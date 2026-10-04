@@ -1,6 +1,7 @@
-// ==========================================
-// SHAPES USED IN THE CHALLENGE
-// ==========================================
+/* =========================================
+   SHAPE BUILDER WORKSHOP
+   CHALLENGE JAVASCRIPT
+   ========================================= */
 
 const challengeShapes = [
   "square-prism",
@@ -12,452 +13,293 @@ const challengeShapes = [
   "pyramid"
 ];
 
-
-// ==========================================
-// GAME VARIABLES
-// ==========================================
-
 let currentQuestion = 0;
 let score = 0;
 let answered = false;
 
 
-// ==========================================
-// GET HTML ELEMENTS
-// ==========================================
+/* ---------- GET ELEMENTS ---------- */
 
-const model =
-  document.getElementById("challengeModel");
+const questionCounter = document.getElementById("questionCounter");
+const scoreText = document.getElementById("scoreText");
 
-const counter =
-  document.getElementById("questionCounter");
+const challengeModel = document.getElementById("challengeModel");
+const questionText = document.getElementById("questionText");
 
-const scoreText =
-  document.getElementById("scoreText");
+const prismBtn = document.getElementById("prismBtn");
+const nonPrismBtn = document.getElementById("nonPrismBtn");
 
-const question =
-  document.getElementById("questionText");
+const challengeFeedback = document.getElementById("challengeFeedback");
+const nextBtn = document.getElementById("nextBtn");
 
-const feedback =
-  document.getElementById("challengeFeedback");
+const resultPanel = document.getElementById("resultPanel");
+const resultTitle = document.getElementById("resultTitle");
+const resultScore = document.getElementById("resultScore");
+const resultMessage = document.getElementById("resultMessage");
 
-const nextButton =
-  document.getElementById("nextBtn");
-
-const prismButton =
-  document.getElementById("prismBtn");
-
-const nonPrismButton =
-  document.getElementById("nonPrismBtn");
-
-const resultPanel =
-  document.getElementById("resultPanel");
+const studentName = document.getElementById("studentName");
+const certificateBtn = document.getElementById("certificateBtn");
+const certificateArea = document.getElementById("certificateArea");
 
 
-// ==========================================
-// SHOW QUESTION
-// ==========================================
+/* ---------- START CHALLENGE ---------- */
 
-function showQuestion() {
+function startChallenge() {
 
+  currentQuestion = 0;
+  score = 0;
   answered = false;
 
+  resultPanel.style.display = "none";
+  certificateArea.style.display = "none";
 
-  const shapeType =
-    challengeShapes[currentQuestion];
+  prismBtn.style.display = "inline-block";
+  nonPrismBtn.style.display = "inline-block";
 
-  const shapeInfo =
-    SHAPES[shapeType];
+  nextBtn.style.display = "none";
 
-
-  // Show 3D shape
-  model.innerHTML =
-    svgForShape(shapeType);
-
-
-  // Show question number
-  counter.textContent =
-    "Question " +
-    (currentQuestion + 1) +
-    " of " +
-    challengeShapes.length;
-
-
-  // Show current score
-  scoreText.textContent =
-    "Score: " + score;
-
-
-  // Show question
-  question.textContent =
-    "Is " +
-    shapeInfo.name +
-    " a prism or a non-prism?";
-
-
-  // Clear previous feedback
-  feedback.className = "feedback";
-  feedback.textContent = "";
-
-
-  // Hide next button
-  nextButton.hidden = true;
-
-
-  // Enable answer buttons
-  prismButton.disabled = false;
-  nonPrismButton.disabled = false;
+  renderQuestion();
 }
 
 
-// ==========================================
-// CHECK ANSWER
-// ==========================================
+/* ---------- SHOW QUESTION ---------- */
 
-function checkChallengeAnswer(answer) {
+function renderQuestion() {
 
-  // Prevent answering twice
+  answered = false;
+
+  const shapeType = challengeShapes[currentQuestion];
+  const shape = SHAPES[shapeType];
+
+  questionCounter.textContent =
+    `Question ${currentQuestion + 1} of ${challengeShapes.length}`;
+
+  scoreText.textContent =
+    `Score: ${score}`;
+
+  challengeModel.innerHTML =
+    svgForShape(shapeType);
+
+  questionText.textContent =
+    `Is ${shape.name} a prism or a non-prism?`;
+
+  challengeFeedback.style.display = "none";
+  challengeFeedback.className = "feedback";
+  challengeFeedback.innerHTML = "";
+
+  prismBtn.disabled = false;
+  nonPrismBtn.disabled = false;
+
+  prismBtn.style.display = "inline-block";
+  nonPrismBtn.style.display = "inline-block";
+
+  nextBtn.style.display = "none";
+}
+
+
+/* ---------- CHECK ANSWER ---------- */
+
+function checkAnswer(userAnswer) {
+
   if (answered) {
     return;
   }
 
   answered = true;
 
-
-  const shapeType =
-    challengeShapes[currentQuestion];
-
+  const shapeType = challengeShapes[currentQuestion];
+  const shape = SHAPES[shapeType];
 
   const correctAnswer =
-    isPrism(shapeType);
+    shape.prism ? "prism" : "non-prism";
+
+  const isCorrect =
+    userAnswer === correctAnswer;
 
 
-  const userAnswer =
-    answer === "prism";
+  /* Disable answer buttons */
+
+  prismBtn.disabled = true;
+  nonPrismBtn.disabled = true;
 
 
-  // ========================================
-  // CORRECT ANSWER
-  // ========================================
+  /* Update score */
 
-  if (userAnswer === correctAnswer) {
+  if (isCorrect) {
 
     score++;
 
-
-    feedback.className =
+    challengeFeedback.className =
       "feedback correct";
 
-    feedback.textContent =
-      "🎉 Correct! Great shape detective work.";
+    challengeFeedback.innerHTML =
+      `<strong>✓ Correct!</strong><br>
+       ${shape.name} is a ${correctAnswer}.`;
 
-  }
+  } else {
 
-
-  // ========================================
-  // WRONG ANSWER
-  // ========================================
-
-  else {
-
-    feedback.className =
+    challengeFeedback.className =
       "feedback wrong";
 
-    feedback.textContent =
-      "💡 Not quite. " +
-      SHAPES[shapeType].name +
-      " is a " +
-      (correctAnswer
-        ? "prism."
-        : "non-prism.");
+    challengeFeedback.innerHTML =
+      `<strong>✗ Not quite!</strong><br>
+       ${shape.name} is a ${correctAnswer}.`;
 
   }
 
 
-  // Update score
+  challengeFeedback.style.display = "block";
+
   scoreText.textContent =
-    "Score: " + score;
+    `Score: ${score}`;
 
 
-  // Disable answer buttons
-  prismButton.disabled = true;
-  nonPrismButton.disabled = true;
+  /* Show next button */
 
+  nextBtn.style.display = "block";
 
-  // Show next button
-  nextButton.hidden = false;
+  if (currentQuestion === challengeShapes.length - 1) {
 
-
-  // Change the button text on the last question
-  if (
-    currentQuestion ===
-    challengeShapes.length - 1
-  ) {
-
-    nextButton.textContent =
+    nextBtn.textContent =
       "See My Result 🏆";
 
   } else {
 
-    nextButton.textContent =
+    nextBtn.textContent =
       "Next Shape →";
 
   }
 }
 
 
-// ==========================================
-// PRISM BUTTON
-// ==========================================
+/* ---------- NEXT QUESTION ---------- */
 
-prismButton.addEventListener(
-  "click",
-  function() {
+function nextQuestion() {
 
-    checkChallengeAnswer("prism");
-
-  }
-);
-
-
-// ==========================================
-// NON-PRISM BUTTON
-// ==========================================
-
-nonPrismButton.addEventListener(
-  "click",
-  function() {
-
-    checkChallengeAnswer("non-prism");
-
-  }
-);
-
-
-// ==========================================
-// NEXT BUTTON
-// ==========================================
-
-nextButton.addEventListener(
-  "click",
-  function() {
-
-    if (
-      currentQuestion <
-      challengeShapes.length - 1
-    ) {
-
-      currentQuestion++;
-
-      showQuestion();
-
-    } else {
-
-      finishChallenge();
-
-    }
-
-  }
-);
-
-
-// ==========================================
-// FINISH CHALLENGE
-// ==========================================
-
-function finishChallenge() {
-
-  // Hide the question section
-  document.querySelector(
-    ".challenge-panel"
-  ).hidden = true;
-
-
-  // Show result section
-  resultPanel.hidden = false;
-
-
-  let achievementTitle;
-  let message;
-
-
-  // ========================================
-  // 7 / 7
-  // ========================================
-
-  if (score === 7) {
-
-    achievementTitle =
-      "Shape Master 🏆";
-
-    message =
-      "Amazing! You identified every shape correctly!";
-
+  if (!answered) {
+    return;
   }
 
+  currentQuestion++;
 
-  // ========================================
-  // 5 - 6 / 7
-  // ========================================
+  if (currentQuestion >= challengeShapes.length) {
 
-  else if (score >= 5) {
+    showResult();
 
-    achievementTitle =
-      "Shape Builder ⭐";
+  } else {
 
-    message =
-      "Great work! You have a strong understanding of prisms.";
+    renderQuestion();
 
   }
-
-
-  // ========================================
-  // 3 - 4 / 7
-  // ========================================
-
-  else if (score >= 3) {
-
-    achievementTitle =
-      "Junior Builder 🔨";
-
-    message =
-      "Well done! Keep practising the prism clues.";
-
-  }
-
-
-  // ========================================
-  // 0 - 2 / 7
-  // ========================================
-
-  else {
-
-    achievementTitle =
-      "Shape Explorer 🧰";
-
-    message =
-      "Good effort! Review the Learn section and try again.";
-
-  }
-
-
-  // Show result
-  document.getElementById(
-    "resultTitle"
-  ).textContent = achievementTitle;
-
-
-  document.getElementById(
-    "resultScore"
-  ).textContent =
-    "You scored " +
-    score +
-    " / 7";
-
-
-  document.getElementById(
-    "resultMessage"
-  ).textContent = message;
 }
 
 
-// ==========================================
-// CERTIFICATE BUTTON
-// ==========================================
+/* ---------- SHOW RESULT ---------- */
 
-document.getElementById(
-  "certificateBtn"
-).addEventListener(
-  "click",
-  function() {
+function showResult() {
 
-    generateCertificate();
+  document.getElementById("challengePanel").style.display =
+    "none";
+
+  resultPanel.style.display =
+    "block";
+
+  resultScore.textContent =
+    `Score: ${score} / ${challengeShapes.length}`;
+
+
+  if (score === 7) {
+
+    resultTitle.textContent =
+      "Shape Master! 🏆";
+
+    resultMessage.textContent =
+      "Amazing! You can identify all seven 3D shapes.";
+
+  } else if (score >= 5) {
+
+    resultTitle.textContent =
+      "Shape Builder! ⭐";
+
+    resultMessage.textContent =
+      "Great work! You understand most of the shapes.";
+
+  } else if (score >= 3) {
+
+    resultTitle.textContent =
+      "Junior Builder! 🔨";
+
+    resultMessage.textContent =
+      "Good effort! Keep practising the clues for identifying prisms.";
+
+  } else {
+
+    resultTitle.textContent =
+      "Shape Explorer! 🧰";
+
+    resultMessage.textContent =
+      "Keep exploring! Go back to Learn and try the challenge again.";
 
   }
-);
+}
 
 
-// ==========================================
-// GENERATE CERTIFICATE
-// ==========================================
+/* ---------- CERTIFICATE ---------- */
 
 function generateCertificate() {
 
-  const nameInput =
-    document.getElementById(
-      "studentName"
-    );
+  const name = studentName.value.trim();
 
-
-  const name =
-    nameInput.value.trim();
-
-
-  // Check if name is empty
   if (name === "") {
 
-    alert(
-      "Please enter your name first."
-    );
+    studentName.focus();
+
+    alert("Please enter your name first.");
 
     return;
   }
 
 
-  // ========================================
-  // DETERMINE ACHIEVEMENT
-  // ========================================
-
-  let level;
-
+  let level = "";
 
   if (score === 7) {
 
     level = "SHAPE MASTER";
 
-  }
-
-  else if (score >= 5) {
+  } else if (score >= 5) {
 
     level = "SHAPE BUILDER";
 
-  }
-
-  else if (score >= 3) {
+  } else if (score >= 3) {
 
     level = "JUNIOR BUILDER";
 
-  }
-
-  else {
+  } else {
 
     level = "SHAPE EXPLORER";
 
   }
 
 
-  // ========================================
-  // CREATE CERTIFICATE PREVIEW
-  // ========================================
+  const today = new Date();
 
-  const certificateArea =
-    document.getElementById(
-      "certificateArea"
+  const dateText =
+    today.toLocaleDateString(
+      "en-GB",
+      {
+        day: "numeric",
+        month: "long",
+        year: "numeric"
+      }
     );
-
-
-  certificateArea.hidden = false;
 
 
   certificateArea.innerHTML = `
 
-    <div
-      class="certificate"
-      id="certificate"
-    >
+    <div class="certificate">
 
       <div class="cert-tools">
-        🧰 ⭐ 📐
+        🔧 📐 🔨
       </div>
 
       <p class="cert-small">
@@ -465,7 +307,7 @@ function generateCertificate() {
       </p>
 
       <h2>
-        CERTIFICATE OF ACHIEVEMENT
+        Certificate of Achievement
       </h2>
 
       <p>
@@ -477,13 +319,9 @@ function generateCertificate() {
       </div>
 
       <p>
-        for completing the
+        for successfully completing the
+        Shape Builder Challenge.
       </p>
-
-      <strong>
-        3D Shapes:
-        Prisms & Non-Prisms Challenge
-      </strong>
 
       <div class="cert-score">
         Score: ${score} / 7
@@ -494,43 +332,37 @@ function generateCertificate() {
       </div>
 
       <p class="cert-date">
-        ${new Date().toLocaleDateString()}
+        ${dateText}
       </p>
 
     </div>
 
-
     <button
-      type="button"
-      class="btn primary download-cert"
-      id="downloadCert"
-    >
-      ⬇ Download Certificate
+      class="btn secondary download-cert"
+      id="downloadCertificateBtn"
+      type="button">
+      Download Certificate
     </button>
-
   `;
 
 
-  // ========================================
-  // DOWNLOAD BUTTON
-  // ========================================
+  certificateArea.style.display =
+    "block";
 
-  document.getElementById(
-    "downloadCert"
-  ).addEventListener(
+
+  /* Download button */
+
+  const downloadButton =
+    document.getElementById(
+      "downloadCertificateBtn"
+    );
+
+  downloadButton.addEventListener(
     "click",
-    function() {
-
-      downloadCertificate(
-        name,
-        level
-      );
-
-    }
+    downloadCertificate
   );
 
 
-  // Scroll to certificate
   certificateArea.scrollIntoView({
     behavior: "smooth",
     block: "start"
@@ -538,62 +370,26 @@ function generateCertificate() {
 }
 
 
-// ==========================================
-// PROTECT CERTIFICATE FROM HTML CHARACTERS
-// ==========================================
+/* ---------- DOWNLOAD CERTIFICATE ---------- */
 
-function escapeHTML(text) {
+function downloadCertificate() {
 
-  return text.replace(
-    /[&<>"']/g,
-    function(character) {
+  const name =
+    studentName.value.trim();
 
-      const characters = {
-
-        "&": "&amp;",
-        "<": "&lt;",
-        ">": "&gt;",
-        '"': "&quot;",
-        "'": "&#039;"
-
-      };
-
-      return characters[character];
-
-    }
-  );
-}
-
-
-// ==========================================
-// DOWNLOAD CERTIFICATE AS PNG
-// ==========================================
-
-function downloadCertificate(
-  name,
-  level
-) {
-
-  // Create canvas
   const canvas =
     document.createElement("canvas");
 
-
-  // Certificate size
-  canvas.width = 1600;
-  canvas.height = 1100;
-
+  canvas.width = 1200;
+  canvas.height = 800;
 
   const ctx =
     canvas.getContext("2d");
 
 
-  // ========================================
-  // BACKGROUND
-  // ========================================
+  /* Background */
 
   ctx.fillStyle = "#fffaf0";
-
   ctx.fillRect(
     0,
     0,
@@ -602,207 +398,223 @@ function downloadCertificate(
   );
 
 
-  // ========================================
-  // OUTER BORDER
-  // ========================================
+  /* Border */
 
-  ctx.strokeStyle =
-    "#1e4775";
-
-  ctx.lineWidth = 22;
+  ctx.strokeStyle = "#1e4775";
+  ctx.lineWidth = 18;
 
   ctx.strokeRect(
     35,
     35,
-    1530,
-    1030
+    1130,
+    730
   );
 
 
-  // ========================================
-  // INNER BORDER
-  // ========================================
+  /* Inner border */
 
-  ctx.strokeStyle =
-    "#d59b2b";
-
-  ctx.lineWidth = 7;
+  ctx.strokeStyle = "#d59b2b";
+  ctx.lineWidth = 4;
 
   ctx.strokeRect(
-    65,
-    65,
-    1470,
-    970
+    60,
+    60,
+    1080,
+    680
   );
 
 
-  // ========================================
-  // TEXT SETTINGS
-  // ========================================
+  /* Title */
 
-  ctx.textAlign =
-    "center";
+  ctx.fillStyle = "#1e4775";
 
-
-  // Workshop title
-  ctx.fillStyle =
-    "#163e68";
+  ctx.textAlign = "center";
 
   ctx.font =
-    "bold 36px Arial";
+    "bold 28px Trebuchet MS";
 
   ctx.fillText(
     "SHAPE BUILDER WORKSHOP",
-    800,
-    160
+    600,
+    130
   );
 
 
-  // Certificate title
   ctx.font =
-    "bold 58px Arial";
+    "bold 48px Trebuchet MS";
 
   ctx.fillText(
-    "CERTIFICATE OF ACHIEVEMENT",
-    800,
-    245
+    "Certificate of Achievement",
+    600,
+    210
   );
 
 
-  // Presented to
-  ctx.fillStyle =
-    "#555";
+  /* Name text */
 
   ctx.font =
-    "30px Arial";
+    "24px Trebuchet MS";
+
+  ctx.fillStyle = "#444";
 
   ctx.fillText(
     "This certificate is proudly presented to",
-    800,
-    340
+    600,
+    280
   );
 
 
-  // Student name
-  ctx.fillStyle =
-    "#163e68";
+  /* Student name */
 
   ctx.font =
-    "bold 70px Arial";
+    "bold 48px Trebuchet MS";
+
+  ctx.fillStyle = "#1e4775";
 
   ctx.fillText(
     name,
-    800,
-    455
+    600,
+    360
   );
 
 
-  // Completion text
-  ctx.fillStyle =
-    "#555";
+  /* Line */
+
+  ctx.strokeStyle = "#d59b2b";
+  ctx.lineWidth = 3;
+
+  ctx.beginPath();
+
+  ctx.moveTo(300, 380);
+  ctx.lineTo(900, 380);
+
+  ctx.stroke();
+
+
+  /* Score */
 
   ctx.font =
-    "30px Arial";
+    "bold 30px Trebuchet MS";
+
+  ctx.fillStyle = "#b47613";
 
   ctx.fillText(
-    "for completing the",
-    800,
-    525
+    `Score: ${score} / 7`,
+    600,
+    450
   );
 
 
-  // Challenge name
-  ctx.fillStyle =
-    "#163e68";
+  /* Achievement */
+
+  let level = "";
+
+  if (score === 7) {
+    level = "SHAPE MASTER";
+  } else if (score >= 5) {
+    level = "SHAPE BUILDER";
+  } else if (score >= 3) {
+    level = "JUNIOR BUILDER";
+  } else {
+    level = "SHAPE EXPLORER";
+  }
+
 
   ctx.font =
-    "bold 38px Arial";
+    "bold 36px Trebuchet MS";
 
-  ctx.fillText(
-    "3D Shapes: Prisms & Non-Prisms Challenge",
-    800,
-    595
-  );
-
-
-  // Score
-  ctx.fillStyle =
-    "#d59b2b";
-
-  ctx.font =
-    "bold 48px Arial";
-
-  ctx.fillText(
-    "Score: " + score + " / 7",
-    800,
-    690
-  );
-
-
-  // Achievement
-  ctx.fillStyle =
-    "#163e68";
-
-  ctx.font =
-    "bold 46px Arial";
+  ctx.fillStyle = "#2d79bd";
 
   ctx.fillText(
     level,
-    800,
-    775
+    600,
+    520
   );
 
 
-  // Date
-  ctx.fillStyle =
-    "#666";
+  /* Date */
+
+  const dateText =
+    new Date().toLocaleDateString(
+      "en-GB",
+      {
+        day: "numeric",
+        month: "long",
+        year: "numeric"
+      }
+    );
+
 
   ctx.font =
-    "26px Arial";
+    "20px Trebuchet MS";
+
+  ctx.fillStyle = "#666";
 
   ctx.fillText(
-    new Date().toLocaleDateString(),
-    800,
-    900
+    dateText,
+    600,
+    600
   );
 
 
-  // Decoration
-  ctx.fillStyle =
-    "#d59b2b";
+  /* Download */
 
-  ctx.font =
-    "48px Arial";
-
-  ctx.fillText(
-    "★  SHAPE BUILDER  ★",
-    800,
-    965
-  );
-
-
-  // ========================================
-  // DOWNLOAD
-  // ========================================
-
-  const downloadLink =
+  const link =
     document.createElement("a");
 
-
-  downloadLink.download =
+  link.download =
     "Shape-Builder-Certificate.png";
 
-
-  downloadLink.href =
+  link.href =
     canvas.toDataURL("image/png");
 
-
-  downloadLink.click();
+  link.click();
 }
 
 
-// ==========================================
-// START THE CHALLENGE
-// ==========================================
+/* ---------- ESCAPE HTML ---------- */
 
-showQuestion();
+function escapeHTML(text) {
+
+  const div =
+    document.createElement("div");
+
+  div.textContent = text;
+
+  return div.innerHTML;
+}
+
+
+/* ---------- EVENT LISTENERS ---------- */
+
+prismBtn.addEventListener(
+  "click",
+  function () {
+    checkAnswer("prism");
+  }
+);
+
+
+nonPrismBtn.addEventListener(
+  "click",
+  function () {
+    checkAnswer("non-prism");
+  }
+);
+
+
+nextBtn.addEventListener(
+  "click",
+  nextQuestion
+);
+
+
+certificateBtn.addEventListener(
+  "click",
+  generateCertificate
+);
+
+
+/* ---------- START ---------- */
+
+startChallenge();
