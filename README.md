@@ -1,16 +1,12 @@
 # Shape Builder Workshop
 
-A cartoon construction-workshop themed mathematics learning website for learning to identify prisms and non-prisms.
+Year 3 Mathematics learning game for identifying prisms and non-prisms.
 
-## Pages
-- Home
-- Learn
-- Build & Compare
-- Challenge
-
-## Shapes
+## 3D shapes
 Prisms: square prism, rectangular prism, triangular prism.
 Non-prisms: sphere, cone, cylinder, pyramid.
 
-## GitHub Pages
-Upload the files to the existing `prism-adventure` repository and keep GitHub Pages set to the `main` branch and root folder.
+## Pages
+Home • Learn • Build & Compare • Challenge
+
+The website uses original SVG-style 3D solids so learners can see faces, bases, curved surfaces and depth clearly.
