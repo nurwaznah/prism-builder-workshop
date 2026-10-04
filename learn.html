@@ -1,34 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Learn | Shape Builder Workshop</title><link rel="stylesheet" href="css/style.css"></head>
-<body class="workshop-bg">
-<header class="topbar"><div class="brand"><span class="brand-icon">🔨</span><span>SHAPE BUILDER<br><small>WORKSHOP</small></span></div>
-<nav><a href="index.html">Home</a><a class="active" href="learn.html">Learn</a><a href="build.html">Build & Compare</a><a href="challenge.html">Challenge</a></nav></header>
-<main class="page">
-<div class="page-title"><div class="blueprint-label">📋 BUILDER BLUEPRINT</div><h1>How to Recognise a Prism</h1><p>Look at the 3D solid carefully. Use these three builder clues.</p></div>
-<section class="clues">
-<article class="clue-card"><div class="number">1</div><div><h2>Look for flat surfaces</h2><p>A prism has <strong>5 or more flat surfaces</strong>.</p></div></article>
-<article class="clue-card"><div class="number">2</div><div><h2>Find two matching bases</h2><p>A prism has <strong>2 opposite bases</strong> with the <strong>same shape and size</strong>.</p></div></article>
-<article class="clue-card"><div class="number">3</div><div><h2>Check for curved surfaces</h2><p>A prism has <strong>no curved surfaces</strong>.</p></div></article>
-</section>
-<section class="important-note"><span>💡</span><div><strong>Builder Tip!</strong><p>A cylinder has two circular bases, but it also has a curved surface. So, a cylinder is <strong>not a prism</strong>.</p></div></section>
-<section class="shape-gallery"><h2>🔍 Inspect the 3D Shapes</h2><div class="inspect-grid" id="inspectGrid"></div></section>
-<div class="next-box"><p>Ready to build the solids yourself?</p><a class="btn orange" href="build.html">🔨 GO TO BUILD & COMPARE</a></div>
-</main><footer>🔧 Shape Builder Workshop</footer>
-<script src="js/shapes.js"></script>
-<script>
-const data=[
-["square-prism","Square Prism","PRISM","Two matching square bases; all surfaces are flat."],
-["rectangular-prism","Rectangular Prism","PRISM","Two matching rectangular bases; all surfaces are flat."],
-["triangular-prism","Triangular Prism","PRISM","Two matching triangular bases; all surfaces are flat."],
-["sphere","Sphere","NON-PRISM","Completely curved surface; no flat base."],
-["cone","Cone","NON-PRISM","One circular base and one curved surface."],
-["cylinder","Cylinder","NON-PRISM","Two circular bases, but also a curved surface."],
-["pyramid","Pyramid","NON-PRISM","Only one base; the other faces meet at a point."]
-];
-const grid=document.getElementById("inspectGrid");
-data.forEach(([shape,name,type,why])=>grid.insertAdjacentHTML("beforeend",`<article class="inspect-card"><div class="inspect-model" data-shape="${shape}"></div><h3>${name}</h3><strong class="${type==="PRISM"?"yes":"no"}">${type}</strong><p>${why}</p></article>`));
-window.render3DShapes();
-</script>
-</body></html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Learn • Shape Builder Workshop</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">🧰 Shape Builder Workshop</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a class="active" href="learn.html">Learn</a>
+      <a href="build.html">Build & Compare</a>
+      <a href="challenge.html">Challenge</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="page-title">
+      <p class="eyebrow">MISSION 1</p>
+      <h1>Learn to Spot a Prism</h1>
+      <p>Use these three clues before you make your decision.</p>
+    </section>
+
+    <section class="clue-grid">
+      <article class="clue-card">
+        <div class="clue-number">1</div>
+        <h2>Two matching bases</h2>
+        <p>A prism has <strong>two opposite bases</strong> with the same shape and size.</p>
+      </article>
+      <article class="clue-card">
+        <div class="clue-number">2</div>
+        <h2>Flat surfaces</h2>
+        <p>Its surfaces are flat. There is <strong>no curved surface</strong>.</p>
+      </article>
+      <article class="clue-card">
+        <div class="clue-number">3</div>
+        <h2>It extends straight</h2>
+        <p>The matching bases are connected by flat side faces, giving the solid a prism-like shape.</p>
+      </article>
+    </section>
+
+    <section class="tip-box">
+      <strong>🛠 Builder Tip:</strong> A cylinder has two matching circular bases, but it has a curved surface. A pyramid has flat surfaces, but only one base. So neither is a prism!
+    </section>
+
+    <section class="gallery-section">
+      <div class="section-heading">
+        <p class="eyebrow">INSPECT THE TOOLBOX</p>
+        <h2>All Seven Shapes</h2>
+      </div>
+      <div class="shape-gallery" id="shapeGallery"></div>
+    </section>
+  </main>
+
+  <footer>Shape Builder Workshop • Learn first, then build!</footer>
+  <script src="js/shapes.js"></script>
+  <script>
+    const gallery = document.getElementById("shapeGallery");
+    const shapes = [
+      ["square-prism","Square Prism"],["rectangular-prism","Rectangular Prism"],
+      ["triangular-prism","Triangular Prism"],["sphere","Sphere"],
+      ["cone","Cone"],["cylinder","Cylinder"],["pyramid","Pyramid"]
+    ];
+    shapes.forEach(([key,name]) => {
+      const card = document.createElement("article");
+      card.className = "shape-card";
+      card.innerHTML = `
+        <div class="gallery-model">${svgForShape(key)}</div>
+        <h3>${name}</h3>
+        <span class="${isPrism(key) ? "prism-label" : "nonprism-label"}">${isPrism(key) ? "PRISM" : "NON-PRISM"}</span>
+      `;
+      gallery.appendChild(card);
+    });
+  </script>
+</body>
+</html>

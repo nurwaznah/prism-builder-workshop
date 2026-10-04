@@ -1,12 +1,20 @@
 # Shape Builder Workshop
 
-Year 3 Mathematics learning game for identifying prisms and non-prisms.
+A Year 3 Mathematics interactive website for learning about prisms and non-prisms.
 
-## 3D shapes
-Prisms: square prism, rectangular prism, triangular prism.
-Non-prisms: sphere, cone, cylinder, pyramid.
+## Seven fixed shapes
+Prisms:
+- Square Prism
+- Rectangular Prism
+- Triangular Prism
 
-## Pages
-Home • Learn • Build & Compare • Challenge
+Non-prisms:
+- Sphere
+- Cone
+- Cylinder
+- Pyramid
 
-The website uses original SVG-style 3D solids so learners can see faces, bases, curved surfaces and depth clearly.
+## Learning flow
+Learn → Explore → Build & Compare → Challenge → Certificate
+
+The challenge gives a score and lets pupils enter their own name to generate and download a certificate as a PNG image.

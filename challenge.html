@@ -1,16 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Challenge | Shape Builder Workshop</title><link rel="stylesheet" href="css/style.css"></head>
-<body class="workshop-bg">
-<header class="topbar"><div class="brand"><span class="brand-icon">🔨</span><span>SHAPE BUILDER<br><small>WORKSHOP</small></span></div>
-<nav><a href="index.html">Home</a><a href="learn.html">Learn</a><a href="build.html">Build & Compare</a><a class="active" href="challenge.html">Challenge</a></nav></header>
-<main class="page"><div class="page-title"><div class="blueprint-label">⭐ FINAL INSPECTION</div><h1>3D Shape Builder Challenge</h1><p>Can you classify all 7 solids correctly?</p></div>
-<div class="score-board"><div>QUESTION <strong id="questionNo">1</strong>/7</div><div>⭐ SCORE <strong id="score">0</strong></div></div>
-<section class="challenge-card"><div class="challenge-shape-wrap"><div id="challengeShape" class="challenge-model"></div></div><h2 id="challengeName"></h2><p>Is this a prism or a non-prism?</p>
-<div class="answer-buttons"><button class="answer-btn" data-answer="prism">🟦 PRISM</button><button class="answer-btn" data-answer="non-prism">🔴 NON-PRISM</button></div>
-<div id="challengeFeedback" class="feedback"></div><button id="nextBtn" class="btn yellow hidden">NEXT SHAPE ➜</button></section>
-<section id="result" class="result-card hidden"><div class="trophy">🏆</div><h2>Workshop Complete!</h2><p>Your final score is:</p><div class="final-score"><span id="finalScore">0</span>/7</div><p id="resultMessage"></p><button class="btn orange" onclick="location.reload()">🔄 TRY AGAIN</button><a class="btn yellow" href="build.html">🔨 BUILD AGAIN</a></section>
-</main><footer>🔧 Shape Builder Workshop</footer>
-<script src="js/shapes.js"></script><script src="js/challenge.js"></script>
-</body></html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Challenge • Shape Builder Workshop</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">🧰 Shape Builder Workshop</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="learn.html">Learn</a>
+      <a href="build.html">Build & Compare</a>
+      <a class="active" href="challenge.html">Challenge</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="page-title">
+      <p class="eyebrow">FINAL MISSION</p>
+      <h1>3D Shape Challenge ⭐</h1>
+      <p>Classify all seven shapes. Complete the challenge to unlock your certificate.</p>
+    </section>
+
+    <section class="challenge-panel">
+      <div class="challenge-top">
+        <span id="questionCounter">Question 1 of 7</span>
+        <span id="scoreText">Score: 0</span>
+      </div>
+      <div class="challenge-model" id="challengeModel"></div>
+      <h2 id="questionText">Is this a prism or a non-prism?</h2>
+      <div class="challenge-buttons">
+        <button type="button" id="prismBtn">PRISM</button>
+        <button type="button" id="nonPrismBtn">NON-PRISM</button>
+      </div>
+      <div class="feedback" id="challengeFeedback" aria-live="polite"></div>
+      <button type="button" class="btn secondary next-btn" id="nextBtn" hidden>Next Shape →</button>
+    </section>
+
+    <section class="result-panel" id="resultPanel" hidden>
+      <div class="trophy">🏆</div>
+      <p class="eyebrow">CHALLENGE COMPLETE</p>
+      <h2 id="resultTitle">Shape Builder</h2>
+      <p class="result-score" id="resultScore"></p>
+      <p id="resultMessage"></p>
+
+      <div class="certificate-form">
+        <h3>Get Your Certificate!</h3>
+        <p>Enter your name and create your achievement certificate.</p>
+        <label for="studentName">Your name</label>
+        <input id="studentName" type="text" maxlength="60" placeholder="Enter your name">
+        <button type="button" class="btn primary" id="certificateBtn">🏆 Generate Certificate</button>
+        <div id="certificateArea" hidden></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>Shape Builder Workshop • You are a Shape Builder!</footer>
+  <script src="js/shapes.js"></script>
+  <script src="js/challenge.js"></script>
+</body>
+</html>
