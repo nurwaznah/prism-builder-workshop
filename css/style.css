@@ -1,93 +1,1064 @@
-*{box-sizing:border-box}
-body{margin:0;font-family:"Trebuchet MS",Arial,sans-serif;color:#163e68;background:#eef7f8;background-image:linear-gradient(rgba(40,100,130,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(40,100,130,.06) 1px,transparent 1px);background-size:24px 24px}
-a{text-decoration:none;color:inherit}
-.site-header{background:#fff;border-bottom:4px solid #1e4775;padding:14px 5%;display:flex;justify-content:space-between;align-items:center;gap:20px;position:sticky;top:0;z-index:5}
-.brand{font-size:22px;font-weight:900}
-nav{display:flex;gap:8px;flex-wrap:wrap}
-nav a{padding:9px 12px;border-radius:12px;font-weight:800}
-nav a:hover,nav a.active{background:#f6d77a}
-.container{width:min(1250px,92%);margin:auto}
-.hero{margin:35px 0;display:grid;grid-template-columns:1.1fr .9fr;gap:30px;background:#fff;border:3px solid #1e4775;border-radius:28px;padding:40px;box-shadow:0 10px 0 #d5e0e5}
-.eyebrow{font-size:13px;font-weight:900;letter-spacing:1.5px;color:#b47613}
-h1{font-size:clamp(38px,5vw,64px);line-height:1.02;margin:8px 0 18px}
-h1 span{color:#2b74b8}
-h2{margin:8px 0 10px}
-.hero-text,.page-title p{font-size:18px;line-height:1.6}
-.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:25px}
-.btn{display:inline-block;border:0;border-radius:14px;padding:13px 18px;font-weight:900;font-size:16px;cursor:pointer}
-.primary{background:#2d79bd;color:#fff}.secondary{background:#f6d77a;color:#163e68}
-.hero-art{min-height:280px;background:#e9f3f7;border:3px dashed #8aa7b9;border-radius:22px;position:relative;overflow:hidden}
-.blueprint{position:absolute;right:18px;top:18px;background:#dceaf3;padding:13px;border:2px solid #6c91aa;font-weight:900;transform:rotate(5deg)}
-.toolbox-art{position:absolute;bottom:15px;left:25px;font-size:72px}
-.shape-stack{position:absolute;right:70px;bottom:25px}
-.cube-art{width:95px;height:75px;background:#5c9fd4;transform:skewY(18deg);border:4px solid #1e4775}
-.tri-art{width:0;height:0;border-left:55px solid transparent;border-right:55px solid transparent;border-bottom:80px solid #efb84f;position:absolute;right:45px;bottom:70px}
-.sphere-art{width:65px;height:65px;border-radius:50%;background:radial-gradient(circle at 30% 25%,#fff,#78b8ec 35%,#3979b8);position:absolute;right:-35px;bottom:10px}
-.feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin:35px 0}
-.feature-card{background:#fff;border:3px solid #1e4775;border-radius:22px;padding:28px;box-shadow:0 8px 0 #d5e0e5;transition:.2s}
-.feature-card:hover{transform:translateY(-4px)}
-.feature-icon{font-size:40px}
-.feature-card p{line-height:1.5}
-.toolbox-section,.gallery-section{background:#fff8df;border:3px solid #1e4775;border-radius:28px;padding:30px;margin:35px 0;box-shadow:0 8px 0 #d5e0e5}
-.section-heading{text-align:center}
-.section-heading h2{font-size:30px}
-.toolbox-buttons{display:grid;grid-template-columns:repeat(7,1fr);gap:12px;margin:22px 0}
-.toolbox-buttons button,.answer-buttons button,.challenge-buttons button{background:#fff;border:2px solid #b7cbd8;border-radius:14px;padding:13px 8px;color:#163e68;font-weight:900;cursor:pointer;min-height:48px}
-.toolbox-buttons button:hover,.toolbox-buttons button.selected{background:#f6d77a;border-color:#1e4775}
-.inspect-panel{display:grid;grid-template-columns:1fr 1fr;gap:25px;background:#fff;border-radius:20px;padding:25px;min-height:290px}
-.inspect-model,.gallery-model,.shape-stage,.challenge-model{display:flex;align-items:center;justify-content:center;min-height:220px;background:#edf6fa;border:2px dashed #9eb8c7;border-radius:18px}
-.inspect-model .shape-svg{max-width:280px}
-.status-badge{display:inline-block;padding:7px 11px;border-radius:20px;background:#e6eef3;font-weight:900;font-size:13px}
-.prism-badge{background:#d9f1d8;color:#2d7130}.nonprism-badge{background:#ffe0d8;color:#a1432d}
-.fact-list{padding-left:22px;line-height:1.9}
-.page-title{padding:45px 0 15px;text-align:center}
-.clue-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.clue-card{background:#fff;border:3px solid #1e4775;border-radius:22px;padding:25px}
-.clue-number{width:45px;height:45px;border-radius:50%;background:#f6d77a;display:grid;place-items:center;font-size:22px;font-weight:900}
-.tip-box,.feedback{margin:25px 0;padding:18px;border-radius:16px;background:#fff0c2;border:2px solid #d59b2b;line-height:1.5}
-.shape-gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-.shape-card{background:#fff;border:2px solid #c4d4dd;border-radius:18px;padding:15px;text-align:center}
-.gallery-model{min-height:170px}
-.prism-label,.nonprism-label{display:inline-block;padding:5px 9px;border-radius:12px;font-size:12px;font-weight:900}
-.prism-label{background:#d9f1d8;color:#2d7130}.nonprism-label{background:#ffe0d8;color:#a1432d}
-.mission-panel,.challenge-panel,.result-panel{background:#fff;border:3px solid #1e4775;border-radius:24px;padding:25px;margin:20px 0;box-shadow:0 8px 0 #d5e0e5}
-.mission-panel select{margin-left:10px;padding:12px;border:2px solid #9eb8c7;border-radius:12px;font-weight:800;color:#163e68}
-.build-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin:25px 0}
-.station{background:#fff8df;border:3px solid #1e4775;border-radius:22px;padding:18px}
-.station-header{display:flex;justify-content:space-between;gap:10px;align-items:center}
-.station-header span{font-size:12px;font-weight:900;color:#b47613}
-.shape-stage{min-height:310px;margin:15px 0;overflow:hidden}
-.shape-stage.built .shape-svg{animation:buildUp .65s ease-out}
-@keyframes buildUp{from{transform:translateY(100px) scale(.55);opacity:0}to{transform:translateY(0) scale(1);opacity:1}}
-.build-btn{width:100%}
-.answer-panel{text-align:center}
-.answer-buttons{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
-.answer-buttons button:hover,.challenge-buttons button:hover{background:#e6f2f9}
-.feedback.correct{background:#dcf5dc;border-color:#63a663}.feedback.wrong{background:#ffe2dc;border-color:#cf725f}
-.challenge-top{display:flex;justify-content:space-between;font-weight:900}
-.challenge-model{min-height:340px;margin:20px auto;max-width:600px}
-.challenge-model .shape-svg{max-width:340px}
-.challenge-buttons{display:flex;gap:15px;justify-content:center}.challenge-buttons button{min-width:170px;background:#fff8df;border-color:#d59b2b}
-.challenge-buttons button:disabled{opacity:.6;cursor:not-allowed}
-.next-btn{display:block;margin:15px auto}
-.trophy{text-align:center;font-size:70px}
-.result-panel{text-align:center}
-.result-score{font-size:28px;font-weight:900}
-.certificate-form{max-width:650px;margin:25px auto;background:#fff8df;border:2px solid #d59b2b;border-radius:20px;padding:25px;text-align:left}
-.certificate-form label{display:block;font-weight:900;margin:15px 0 7px}
-.certificate-form input{width:100%;padding:14px;border:2px solid #9eb8c7;border-radius:12px;font-size:16px;margin-bottom:15px}
-.certificate{margin-top:20px;background:#fffaf0;border:10px double #1e4775;padding:35px;text-align:center;min-height:430px;position:relative}
-.cert-tools{font-size:35px}.cert-small{letter-spacing:2px;font-weight:900;color:#b47613}.certificate h2{font-size:32px}.cert-name{font-size:38px;font-weight:900;color:#1e4775;margin:18px 0;border-bottom:2px solid #d59b2b;padding-bottom:8px}.cert-score{font-size:24px;font-weight:900;color:#b47613;margin:18px}.cert-level{font-size:28px;font-weight:900;color:#2d79bd}.cert-date{color:#666}
-.download-cert{margin-top:15px}
-footer{text-align:center;padding:35px 10px;color:#557080;font-weight:700}
-.shape-svg{width:min(90%,330px);height:auto;overflow:visible}
-.shape-svg .top-face{fill:#82b9e2;stroke:#1e4775;stroke-width:3}
-.shape-svg .left-face{fill:#4e91c8;stroke:#1e4775;stroke-width:3}
-.shape-svg .right-face{fill:#2f70aa;stroke:#1e4775;stroke-width:3}
-.shape-svg .front-face{fill:#5b9ed1;stroke:#1e4775;stroke-width:3}
-.shape-svg .base-face{fill:#e0a73f;stroke:#1e4775;stroke-width:3}
-.shape-svg .side-face{fill:#4f91c8;stroke:#1e4775;stroke-width:3}
-.shape-svg .bottom-face{fill:#397cb6;stroke:#1e4775;stroke-width:3}
-.shape-svg .edge{fill:none;stroke:#1e4775;stroke-width:3;stroke-linejoin:round;stroke-linecap:round}
-@media(max-width:900px){.hero,.inspect-panel{grid-template-columns:1fr}.feature-grid,.clue-grid{grid-template-columns:1fr}.toolbox-buttons{grid-template-columns:repeat(2,1fr)}.shape-gallery{grid-template-columns:repeat(2,1fr)}.build-grid{grid-template-columns:1fr}.site-header{align-items:flex-start;flex-direction:column}}
-@media(max-width:520px){.hero{padding:25px}.shape-gallery{grid-template-columns:1fr}.toolbox-buttons{grid-template-columns:1fr}.challenge-buttons{flex-direction:column}.challenge-buttons button{width:100%}}
+/* =========================================
+   SHAPE BUILDER WORKSHOP
+   Year 3 Mathematics
+   ========================================= */
+
+
+/* ---------- GENERAL ---------- */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Trebuchet MS", Arial, sans-serif;
+  color: #163e68;
+  background: #eef7f8;
+
+  /* Blueprint background */
+  background-image:
+    linear-gradient(
+      rgba(40, 100, 130, 0.06) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(40, 100, 130, 0.06) 1px,
+      transparent 1px
+    );
+
+  background-size: 24px 24px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+
+/* ---------- HEADER ---------- */
+
+.site-header {
+  background: #ffffff;
+  border-bottom: 4px solid #1e4775;
+
+  padding: 14px 5%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  gap: 20px;
+
+  position: sticky;
+  top: 0;
+
+  z-index: 5;
+}
+
+.brand {
+  font-size: 22px;
+  font-weight: 900;
+}
+
+nav {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+nav a {
+  padding: 9px 12px;
+  border-radius: 12px;
+  font-weight: 800;
+}
+
+nav a:hover,
+nav a.active {
+  background: #f6d77a;
+}
+
+
+/* ---------- CONTAINER ---------- */
+
+.container {
+  width: min(1250px, 92%);
+  margin: auto;
+}
+
+
+/* ---------- HERO ---------- */
+
+.hero {
+  margin: 35px 0;
+
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+
+  gap: 30px;
+
+  background: #ffffff;
+
+  border: 3px solid #1e4775;
+  border-radius: 28px;
+
+  padding: 40px;
+
+  box-shadow: 0 10px 0 #d5e0e5;
+}
+
+.eyebrow {
+  font-size: 13px;
+  font-weight: 900;
+
+  letter-spacing: 1.5px;
+
+  color: #b47613;
+}
+
+h1 {
+  font-size: clamp(38px, 5vw, 64px);
+  line-height: 1.02;
+
+  margin: 8px 0 18px;
+}
+
+h1 span {
+  color: #2b74b8;
+}
+
+.hero-text,
+.page-title p {
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+
+  margin-top: 25px;
+}
+
+
+/* ---------- BUTTONS ---------- */
+
+.btn {
+  display: inline-block;
+
+  border: 0;
+  border-radius: 14px;
+
+  padding: 13px 18px;
+
+  font-weight: 900;
+  font-size: 16px;
+
+  cursor: pointer;
+}
+
+.primary {
+  background: #2d79bd;
+  color: #ffffff;
+}
+
+.secondary {
+  background: #f6d77a;
+  color: #163e68;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+
+/* ---------- HERO ART ---------- */
+
+.hero-art {
+  min-height: 280px;
+
+  background: #e9f3f7;
+
+  border: 3px dashed #8aa7b9;
+  border-radius: 22px;
+
+  position: relative;
+  overflow: hidden;
+}
+
+.blueprint {
+  position: absolute;
+
+  right: 18px;
+  top: 18px;
+
+  background: #dceaf3;
+
+  padding: 13px;
+
+  border: 2px solid #6c91aa;
+
+  font-weight: 900;
+
+  transform: rotate(5deg);
+}
+
+.toolbox-art {
+  position: absolute;
+
+  bottom: 15px;
+  left: 25px;
+
+  font-size: 72px;
+}
+
+.shape-stack {
+  position: absolute;
+
+  right: 70px;
+  bottom: 25px;
+}
+
+.cube-art {
+  width: 95px;
+  height: 75px;
+
+  background: #5c9fd4;
+
+  transform: skewY(18deg);
+
+  border: 4px solid #1e4775;
+}
+
+.tri-art {
+  width: 0;
+  height: 0;
+
+  border-left: 55px solid transparent;
+  border-right: 55px solid transparent;
+  border-bottom: 80px solid #efb84f;
+
+  position: absolute;
+
+  right: 45px;
+  bottom: 70px;
+}
+
+.sphere-art {
+  width: 65px;
+  height: 65px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle at 30% 25%,
+      #ffffff,
+      #78b8ec 35%,
+      #3979b8
+    );
+
+  position: absolute;
+
+  right: -35px;
+  bottom: 10px;
+}
+
+
+/* ---------- FEATURE CARDS ---------- */
+
+.feature-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 22px;
+
+  margin: 35px 0;
+}
+
+.feature-card {
+  background: #ffffff;
+
+  border: 3px solid #1e4775;
+  border-radius: 22px;
+
+  padding: 28px;
+
+  box-shadow: 0 8px 0 #d5e0e5;
+
+  transition: 0.2s;
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+}
+
+.feature-icon {
+  font-size: 40px;
+}
+
+.feature-card p {
+  line-height: 1.5;
+}
+
+
+/* ---------- SECTION BOX ---------- */
+
+.toolbox-section,
+.gallery-section {
+  background: #fff8df;
+
+  border: 3px solid #1e4775;
+  border-radius: 28px;
+
+  padding: 30px;
+
+  margin: 35px 0;
+
+  box-shadow: 0 8px 0 #d5e0e5;
+}
+
+.section-heading {
+  text-align: center;
+}
+
+.section-heading h2 {
+  font-size: 30px;
+}
+
+
+/* ---------- TOOLBOX ---------- */
+
+.toolbox-buttons {
+  display: grid;
+
+  grid-template-columns: repeat(7, 1fr);
+
+  gap: 12px;
+
+  margin: 22px 0;
+}
+
+.toolbox-buttons button,
+.answer-buttons button,
+.challenge-buttons button {
+  background: #ffffff;
+
+  border: 2px solid #b7cbd8;
+
+  border-radius: 14px;
+
+  padding: 13px 8px;
+
+  color: #163e68;
+
+  font-weight: 900;
+
+  cursor: pointer;
+
+  min-height: 48px;
+}
+
+.toolbox-buttons button:hover,
+.toolbox-buttons button.selected {
+  background: #f6d77a;
+
+  border-color: #1e4775;
+}
+
+
+/* ---------- INSPECT PANEL ---------- */
+
+.inspect-panel {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 25px;
+
+  background: #ffffff;
+
+  border-radius: 20px;
+
+  padding: 25px;
+
+  min-height: 290px;
+}
+
+.inspect-model,
+.gallery-model,
+.shape-stage,
+.challenge-model {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  min-height: 220px;
+
+  background: #edf6fa;
+
+  border: 2px dashed #9eb8c7;
+
+  border-radius: 18px;
+}
+
+.inspect-model .shape-svg {
+  max-width: 280px;
+}
+
+
+/* ---------- BADGES ---------- */
+
+.status-badge {
+  display: inline-block;
+
+  padding: 7px 11px;
+
+  border-radius: 20px;
+
+  background: #e6eef3;
+
+  font-weight: 900;
+
+  font-size: 13px;
+}
+
+.prism-badge {
+  background: #d9f1d8;
+  color: #2d7130;
+}
+
+.nonprism-badge {
+  background: #ffe0d8;
+  color: #a1432d;
+}
+
+
+/* ---------- FACTS ---------- */
+
+.fact-list {
+  padding-left: 22px;
+
+  line-height: 1.9;
+}
+
+
+/* ---------- PAGE TITLE ---------- */
+
+.page-title {
+  padding: 45px 0 15px;
+
+  text-align: center;
+}
+
+
+/* ---------- LEARN CLUES ---------- */
+
+.clue-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 20px;
+}
+
+.clue-card {
+  background: #ffffff;
+
+  border: 3px solid #1e4775;
+  border-radius: 22px;
+
+  padding: 25px;
+}
+
+.clue-number {
+  width: 45px;
+  height: 45px;
+
+  border-radius: 50%;
+
+  background: #f6d77a;
+
+  display: grid;
+  place-items: center;
+
+  font-size: 22px;
+  font-weight: 900;
+}
+
+
+/* ---------- TIP / FEEDBACK ---------- */
+
+.tip-box,
+.feedback {
+  margin: 25px 0;
+
+  padding: 18px;
+
+  border-radius: 16px;
+
+  background: #fff0c2;
+
+  border: 2px solid #d59b2b;
+
+  line-height: 1.5;
+}
+
+
+/* ---------- SHAPE GALLERY ---------- */
+
+.shape-gallery {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 18px;
+}
+
+.shape-card {
+  background: #ffffff;
+
+  border: 2px solid #c4d4dd;
+
+  border-radius: 18px;
+
+  padding: 15px;
+
+  text-align: center;
+}
+
+.gallery-model {
+  min-height: 170px;
+}
+
+
+/* ---------- PRISM LABELS ---------- */
+
+.prism-label,
+.nonprism-label {
+  display: inline-block;
+
+  padding: 5px 9px;
+
+  border-radius: 12px;
+
+  font-size: 12px;
+
+  font-weight: 900;
+}
+
+.prism-label {
+  background: #d9f1d8;
+  color: #2d7130;
+}
+
+.nonprism-label {
+  background: #ffe0d8;
+  color: #a1432d;
+}
+
+
+/* ---------- MISSION PANELS ---------- */
+
+.mission-panel,
+.challenge-panel,
+.result-panel {
+  background: #ffffff;
+
+  border: 3px solid #1e4775;
+  border-radius: 24px;
+
+  padding: 25px;
+
+  margin: 20px 0;
+
+  box-shadow: 0 8px 0 #d5e0e5;
+}
+
+.mission-panel select {
+  margin-left: 10px;
+
+  padding: 12px;
+
+  border: 2px solid #9eb8c7;
+
+  border-radius: 12px;
+
+  font-weight: 800;
+
+  color: #163e68;
+}
+
+
+/* ---------- BUILD & COMPARE ---------- */
+
+.build-grid {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 22px;
+
+  margin: 25px 0;
+}
+
+.station {
+  background: #fff8df;
+
+  border: 3px solid #1e4775;
+  border-radius: 22px;
+
+  padding: 18px;
+}
+
+.station-header {
+  display: flex;
+
+  justify-content: space-between;
+
+  gap: 10px;
+
+  align-items: center;
+}
+
+.station-header span {
+  font-size: 12px;
+
+  font-weight: 900;
+
+  color: #b47613;
+}
+
+.shape-stage {
+  min-height: 310px;
+
+  margin: 15px 0;
+
+  overflow: hidden;
+}
+
+
+/* ---------- BUILD ANIMATION ---------- */
+
+.shape-stage.built .shape-svg {
+  animation: buildUp 0.65s ease-out;
+}
+
+@keyframes buildUp {
+
+  from {
+    transform: translateY(100px) scale(0.55);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+
+}
+
+
+/* ---------- BUILD BUTTON ---------- */
+
+.build-btn {
+  width: 100%;
+}
+
+
+/* ---------- ANSWER PANEL ---------- */
+
+.answer-panel {
+  text-align: center;
+}
+
+.answer-buttons {
+  display: flex;
+
+  gap: 10px;
+
+  justify-content: center;
+
+  flex-wrap: wrap;
+}
+
+.answer-buttons button:hover,
+.challenge-buttons button:hover {
+  background: #e6f2f9;
+}
+
+
+/* ---------- FEEDBACK STATES ---------- */
+
+.feedback.correct {
+  background: #dcf5dc;
+
+  border-color: #63a663;
+}
+
+.feedback.wrong {
+  background: #ffe2dc;
+
+  border-color: #cf725f;
+}
+
+
+/* ---------- CHALLENGE ---------- */
+
+.challenge-top {
+  display: flex;
+
+  justify-content: space-between;
+
+  font-weight: 900;
+}
+
+.challenge-model {
+  min-height: 340px;
+
+  margin: 20px auto;
+
+  max-width: 600px;
+}
+
+.challenge-model .shape-svg {
+  max-width: 340px;
+}
+
+.challenge-buttons {
+  display: flex;
+
+  gap: 15px;
+
+  justify-content: center;
+}
+
+.challenge-buttons button {
+  min-width: 170px;
+
+  background: #fff8df;
+
+  border-color: #d59b2b;
+}
+
+.challenge-buttons button:disabled {
+  opacity: 0.6;
+
+  cursor: not-allowed;
+}
+
+
+/* ---------- NEXT BUTTON ---------- */
+
+.next-btn {
+  display: block;
+
+  margin: 15px auto;
+}
+
+
+/* ---------- RESULT ---------- */
+
+.result-panel {
+  text-align: center;
+}
+
+.trophy {
+  text-align: center;
+
+  font-size: 70px;
+}
+
+.result-score {
+  font-size: 28px;
+
+  font-weight: 900;
+}
+
+
+/* ---------- CERTIFICATE FORM ---------- */
+
+.certificate-form {
+  max-width: 650px;
+
+  margin: 25px auto;
+
+  background: #fff8df;
+
+  border: 2px solid #d59b2b;
+
+  border-radius: 20px;
+
+  padding: 25px;
+
+  text-align: left;
+}
+
+.certificate-form label {
+  display: block;
+
+  font-weight: 900;
+
+  margin: 15px 0 7px;
+}
+
+.certificate-form input {
+  width: 100%;
+
+  padding: 14px;
+
+  border: 2px solid #9eb8c7;
+
+  border-radius: 12px;
+
+  font-size: 16px;
+
+  margin-bottom: 15px;
+}
+
+
+/* ---------- CERTIFICATE ---------- */
+
+.certificate {
+  margin-top: 20px;
+
+  background: #fffaf0;
+
+  border: 10px double #1e4775;
+
+  padding: 35px;
+
+  text-align: center;
+
+  min-height: 430px;
+
+  position: relative;
+}
+
+.cert-tools {
+  font-size: 35px;
+}
+
+.cert-small {
+  letter-spacing: 2px;
+
+  font-weight: 900;
+
+  color: #b47613;
+}
+
+.certificate h2 {
+  font-size: 32px;
+}
+
+.cert-name {
+  font-size: 38px;
+
+  font-weight: 900;
+
+  color: #1e4775;
+
+  margin: 18px 0;
+
+  border-bottom: 2px solid #d59b2b;
+
+  padding-bottom: 8px;
+}
+
+.cert-score {
+  font-size: 24px;
+
+  font-weight: 900;
+
+  color: #b47613;
+
+  margin: 18px;
+}
+
+.cert-level {
+  font-size: 28px;
+
+  font-weight: 900;
+
+  color: #2d79bd;
+}
+
+.cert-date {
+  color: #666;
+}
+
+
+/* ---------- DOWNLOAD CERTIFICATE ---------- */
+
+.download-cert {
+  margin-top: 15px;
+}
+
+
+/* ---------- FOOTER ---------- */
+
+footer {
+  text-align: center;
+
+  padding: 35px 10px;
+
+  color: #557080;
+
+  font-weight: 700;
+}
+
+
+/* =========================================
+   3D SHAPES
+   ========================================= */
+
+.shape-svg {
+  width: min(90%, 330px);
+
+  height: auto;
+
+  overflow: visible;
+}
+
+
+/* ---------- BLUE FACES ---------- */
+
+.shape-svg .top-face {
+  fill: #82b9e2;
+
+  stroke: #1e4775;
+
+  stroke-width: 3;
+}
+
+.shape-svg .left-face {
+  fill: #4e91c8;
+
+  stroke: #1e4775;
+
+  stroke-width: 3;
+}
+
+.shape-svg .right-face {
+  fill: #2f70aa;
+
+  stroke: #1e4775;
+
+  stroke-width: 3;
+}
+
+.shape-svg .front-face {
+  fill: #5b9ed1;
+
+  stroke: #1e4775;
+
+  stroke-width: 3;
+}
+
+
+/* ---------- OTHER FACES ---------- */
+
+.shape-svg .base-face {
+  fill: #e0a73f;
+
+  stroke: #1e4775;
+
+  stroke-width: 3;
+}
+
+.shape-svg .side-face {
+  fill: #4f91c8;
+
+  stroke: #1e4775;
+
+  stroke-width: 3;
+}
+
+.shape-svg .bottom-face {
+  fill: #397cb6;
+
+  stroke: #1e4775;
+
+  stroke-width: 3;
+}
+
+
+/* ---------- EDGES ---------- */
+
+.shape-svg .edge {
+  fill: none;
+
+  stroke: #1e4775;
+
+  stroke-width: 3;
+
+  stroke-linejoin: round;
+
+  stroke-linecap: round;
+}
+
+
+/* =========================================
+   RESPONSIVE DESIGN
+   ========================================= */
+
+@media (max-width: 900px) {
+
+  .hero,
+  .inspect-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .feature-grid,
+  .clue-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .toolbox-buttons {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .shape-gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .build-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .site-header {
+    align-items: flex-start;
+
+    flex-direction: column;
+  }
+
+}
+
+
+@media (max-width: 520px) {
+
+  .hero {
+    padding: 25px;
+  }
+
+  .shape-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .toolbox-buttons {
+    grid-template-columns: 1fr;
+  }
+
+  .challenge-buttons {
+    flex-direction: column;
+  }
+
+  .challenge-buttons button {
+    width: 100%;
+  }
+
+}
